@@ -3,18 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EfSqlite.Data
 {
-    public sealed class ContactsContext : DbContext
+    public sealed class ContactsDbContext : DbContext
     {
         private static bool _created;
 
         public DbSet<Contact> Contacts { get; set; }
 
-        public ContactsContext()
-        {
-
-        }
-
-        public ContactsContext(DbContextOptions<ContactsContext> options)
+        public ContactsDbContext(DbContextOptions<ContactsDbContext> options)
             : base(options)
         {
             if (_created) return;

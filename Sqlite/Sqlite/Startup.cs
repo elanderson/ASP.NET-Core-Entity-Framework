@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Sqlite.Data;
 using Sqlite.Models;
 using Sqlite.Services;
+using EfSqlite.Data;
 
 namespace Sqlite
 {
@@ -46,6 +47,9 @@ namespace Sqlite
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddDbContext<ContactsDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
 
             services.AddMvc();
 
