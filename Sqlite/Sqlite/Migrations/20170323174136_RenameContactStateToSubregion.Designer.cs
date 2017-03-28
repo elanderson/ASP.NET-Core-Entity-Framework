@@ -8,9 +8,10 @@ using EfSqlite.Data;
 namespace EfSqlite.Migrations
 {
     [DbContext(typeof(ContactsDbContext))]
-    partial class ContactsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170323174136_RenameContactStateToSubregion")]
+    partial class RenameContactStateToSubregion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");

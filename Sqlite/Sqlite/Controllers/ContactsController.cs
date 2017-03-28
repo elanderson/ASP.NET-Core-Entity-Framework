@@ -54,7 +54,7 @@ namespace EfSqlite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,City,State,PostalCode,Phone,Email")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Id,Name,Address,City,Subregion,PostalCode,Phone,Email")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace EfSqlite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Address,City,State,PostalCode,Phone,Email")] Contact contact)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Address,City,Subregion,PostalCode,Phone,Email")] Contact contact)
         {
             if (id != contact.Id)
             {
