@@ -12,7 +12,7 @@
     <UserSecretsId>aspnet-Sqlite-5f842dd2-e86e-4bd6-9a88-e2d35188f2ae</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.*" />
