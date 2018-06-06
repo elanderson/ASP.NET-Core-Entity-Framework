@@ -9,6 +9,7 @@ using Sqlite.Models;
 using Sqlite.Services;
 using EfSqlite.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Sqlite
 {
@@ -47,7 +48,7 @@ namespace Sqlite
             services.AddDbContext<ContactsDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
 
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -64,7 +65,6 @@ namespace Sqlite
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                app.UseBrowserLink();
             }
             else
             {
