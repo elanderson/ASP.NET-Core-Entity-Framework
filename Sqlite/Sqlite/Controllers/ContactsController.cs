@@ -149,5 +149,33 @@ namespace EfSqlite.Controllers
         {
             return _context.Contacts.Any(e => e.Id == id);
         }
+
+        [Route("ConcurrencyTest")]
+        public void ConcurrencyTest()
+        {
+            var context1 = new ContactsDbContext(new DbContextOptionsBuilder<ContactsDbContext>().UseSqlite("Data Source=Database.db").Options);
+            var contactFromContext1 = context1.Contacts.FirstOrDefault(c => c.Name == "Test");
+
+            if (contactFromContext1 == null)
+            {
+                contactFromContext1 = new Contact
+                {
+                    Name = "Test"
+                };
+
+                context1.Add(contactFromContext1);
+                context1.SaveChanges();
+            }
+
+            var context2 = new ContactsDbContext(new DbContextOptionsBuilder<ContactsDbContext>().UseSqlite("Data Source=Database.db").Options);
+            var contactFromContext2 = context2.Contacts.FirstOrDefault(c => c.Name == "Test");
+
+            contactFromContext1.Address = DateTime.Now.ToString();
+            contactFromContext2.Address = DateTime.UtcNow.ToString();
+
+            context1.SaveChanges();
+            context2.SaveChanges();
+        }
+
     }
 }
