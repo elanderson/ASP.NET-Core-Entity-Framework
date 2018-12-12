@@ -48,7 +48,7 @@ namespace Sqlite
             services.AddDbContext<ContactsDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
