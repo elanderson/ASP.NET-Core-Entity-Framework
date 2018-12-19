@@ -1,4 +1,6 @@
-﻿namespace SqlServer.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SqlServer.Data
 {
     public class Contact
     {
@@ -9,6 +11,7 @@
         public string Subregion { get; set; }
         public string PostalCode { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }       
+        public string Email { get; set; }
+        [Timestamp] public byte[] Timestamp { get; set; }
     }
 }
